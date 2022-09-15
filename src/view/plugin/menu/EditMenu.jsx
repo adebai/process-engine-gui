@@ -25,7 +25,7 @@ const EditMenuComponent = ({setData}) => {
     (nv?.type == 12) ? types.tElseIf :
     (nv?.type == 13) ? types.tElse :
     (nv?.type == 2) ? types.tLoop : 
-    (nv?.type == 3) ? types.tEevent :
+    (nv?.type == 3) ? types.tEvent :
     (nv?.type == 31) ? types.tEventEmitter :
     (nv?.type == 32) ? types.tEventReceiver :
     (nv?.type == 4) ? types.tExpression :
