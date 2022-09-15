@@ -1,0 +1,33 @@
+
+body::-webkit-scrollbar {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    display: none;
+  }
+  body::-webkit-scrollbar-track-piece {
+    background-color: rgba(199, 3, 3, 0.579);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: rgba(199, 3, 3, 0.764);
+    
+  }
+  .phone *::-webkit-scrollbar {
+    width: 5px;
+    color: grey;
+    background-color: rgba(255, 0, 0, 0.5)!important;
+  }
+  .phone *::-webkit-scrollbar-track-piece {
+    background-color: rgba(255, 121, 121, 0.9)!important;
+  
+  }
+  
+  .phone *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.567)!important;
+  
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  * {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: 10px;  /* Firefox */
+  }

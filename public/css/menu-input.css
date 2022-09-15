@@ -1,0 +1,45 @@
+#inputs {
+    text-align: left;
+}
+#inputs h3 {
+    text-align: center;
+}
+#inputs .input-cont {
+    padding: 10px;
+    margin: 2px;
+}
+.form-group {
+    display: flex;
+    flex-flow: wrap;
+    border: 1px solid rgba(255, 152, 152, 0.045);
+    border-radius: 4px 4px;
+    margin-top: 10px;
+}
+.input-cont label, .input-cont input {
+    width:96%;
+    max-width:96%;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin: 2px;
+    border-radius: 4px 4px;
+}
+.input-cont input {
+    width:100%;
+    max-width:100%;
+    padding: 5px 10px;
+    height:2em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: rgba(255, 199, 199, 0);
+    border: 1px solid rgba(255, 237, 237, 0.541);
+
+}
+.input-cont select::placeholder, .input-cont input::placeholder {
+    color: rgba(255, 255, 255, 0.526);
+}
+.input-cont select:hover, .input-cont input:hover {
+    outline: none;
+    
+}
