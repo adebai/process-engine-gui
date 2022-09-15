@@ -9,6 +9,15 @@
   export let  tEventReceiver = {};
   export let  tExpression ={};
   export let  type2 = {};
+  tCondition.name = "condition";
+  tIf.name = "condition";
+  tElseIf.name = "condition";
+  tElse.name = "condition";
+  tEventEmitter.name = "condition";
+  tEventReceiver.name = "condition";
+  tExpression.name = "condition";
+  tLoop.name = "condition";
+  type2.name = "process";
   tEventEmitter.description = "Event emitters send notifications to event receivers whenever you use them. Note that you need to first create the event receiver before you can emit the event, else your event receiver will not receive your event until it is defined.";
   tCondition.fields = [
       {name : "comment", type: "textbox", title : "Comment", placeholder : " explain what it does..", id : Math.random()*90000000000, value:"",},

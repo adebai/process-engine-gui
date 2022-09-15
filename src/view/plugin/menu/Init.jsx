@@ -229,15 +229,20 @@ globalThis.showTooltip = (e, {notConditioned, tooltipText = "", time = 5000}) =>
                 params.obj.type = globalThis.PE_CONDITIONCHILD;
                 if(params.obj.parent.children.length >= 3){
                     console.log("condition needs renaming.");
+                    if(!params.obj.style)params.obj.style = {};
+                    if(!params.obj.parent.children[(params.obj.parent.children.length - 2)].style)params.obj.parent.children[(params.obj.parent.children.length - 2)].style = {};
                     // globalThis.ME.beginEdit(E(params.obj.parent.children[(params.obj.parent.children.length - 2)].id));
                     params.obj.parent.children[(params.obj.parent.children.length - 2)].topic = params.obj.parent.children[(params.obj.parent.children.length - 2)].topic.replace('Else', 'Else if');
-                    E(params.obj.parent.children[(params.obj.parent.children.length - 2)].id).innerHTML = E(params.obj.parent.children[(params.obj.parent.children.length - 2)].id).innerHTML.replace('Else', 'Else if');
-                    E(params.obj.parent.children[(params.obj.parent.children.length - 2)].id).style.backgroundColor = "#7a1571";
+                    params.obj.parent.children[(params.obj.parent.children.length - 2)].style.background = "#7a1571";
                     params.obj.topic = "Else";
                     E(params.obj.id).innerHTML = "Else";
-                    E(params.obj.id).style.backgroundColor = "#fc3737";
-                    E(params.obj.id).style.color = "#e6e6e6";
-                    globalThis.ME.selectNode(params.obj.id);
+                    params.obj.style.background = "#fc3737";
+                    params.obj.style.color = "#e6e6e6";
+                    mind.updateNodeStyle(params.obj.parent.children[(params.obj.parent.children.length - 2)])
+                    mind.updateNodeTags(params.obj.parent.children[(params.obj.parent.children.length - 2)])
+                    mind.updateNodeStyle(params.obj)
+                    mind.updateNodeTags(params.obj)
+                    // globalThis.ME.selectNode(params.obj.id);
                 }
             }
             return true;

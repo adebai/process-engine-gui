@@ -46,12 +46,16 @@ class App extends React.Component {
               this.ME.addChild(E(nodeId));
               globalThis.ME.selectNode(E(nodeId));
               globalThis.curNode.dataRoot = true;
-              this.ME.currentNode.style.backgroundColor = `#ffd600`;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#ffd600`;
+              this.ME.updateNodeStyle(globalThis.curNode);
               globalThis.curNode.type = globalThis.PE_CONDITION;
               nodeId = globalThis.curNode.id;
               this.ME.newTopicName = "If";
               this.ME.addChild(E(nodeId2));
-              this.ME.currentNode.style.backgroundColor = `#38f938`;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#38f938`;
+              this.ME.updateNodeStyle(globalThis.curNode);
               globalThis.curNode.type = globalThis.PE_CONDITIONCHILD;
               nodeId2 = globalThis.curNode.id;
               this.ME.selectNode(E(nodeId));
@@ -59,12 +63,12 @@ class App extends React.Component {
               this.ME.addChild(E(nodeId3));
               this.ME.selectNode(E(nodeId3));
               globalThis.curNode.type = globalThis.PE_CONDITIONCHILD;
-              this.ME.currentNode.style.backgroundColor = `#fc3737`;
-              this.ME.currentNode.style.color = `#e6e6e6`;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#fc3737`;
+              globalThis.curNode.style.color = `#e6e6e6`;
+              this.ME.updateNodeStyle(globalThis.curNode);
               nodeId3 = globalThis.curNode.id;
               this.ME.newTopicName = before;
-              setTimeout(()=>{
-              }, 1000);
               return true;
             }
           },
@@ -88,10 +92,12 @@ class App extends React.Component {
               this.ME.addChild(E(nodeId));
               globalThis.ME.selectNode(E(nodeId));
               globalThis.curNode.dataRoot = true;
-              this.ME.currentNode.style.backgroundColor = `#7e00fe`;
-              this.ME.currentNode.style.color = `#e6e6e6`;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#7e00fe`;
+              globalThis.curNode.style.color = `#e6e6e6`;
               globalThis.curNode.type = globalThis.PE_LOOP;
               this.ME.newTopicName = before;
+              this.ME.updateNodeStyle(globalThis.curNode);
               return true;
             }
           },
@@ -113,10 +119,11 @@ class App extends React.Component {
               this.ME.addChild(E(nodeId));
               globalThis.ME.selectNode(E(nodeId));
               globalThis.curNode.dataRoot = true;
-              this.ME.currentNode.style.backgroundColor = `#fe9d00`;
-              this.ME.currentNode.style.color = `#e6e6e6`;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#fe9d00`;
               globalThis.curNode.type = globalThis.PE_EVENTEMITTER;
               this.ME.newTopicName = before;
+              this.ME.updateNodeStyle(globalThis.curNode);
               return true;
             }
           },
@@ -138,10 +145,14 @@ class App extends React.Component {
               this.ME.addChild(E(nodeId));
               globalThis.ME.selectNode(E(nodeId));
               globalThis.curNode.dataRoot = true;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#0022fe`;
+              globalThis.curNode.style.color = `#e6e6e6`;
               this.ME.currentNode.style.backgroundColor = `#0022fe`;
               this.ME.currentNode.style.color = `#e6e6e6`;
               globalThis.curNode.type = globalThis.PE_EVENTRECEIVER;
               this.ME.newTopicName = before;
+              this.ME.updateNodeStyle(globalThis.curNode);
               return true;
             }
           },
@@ -157,10 +168,12 @@ class App extends React.Component {
               this.ME.addChild(E(nodeId));
               globalThis.ME.selectNode(E(nodeId));
               globalThis.curNode.dataRoot = true;
-              this.ME.currentNode.style.backgroundColor = `#fe00d5`;
-              this.ME.currentNode.style.color = `#e6e6e6`;
+              globalThis.curNode.style = globalThis.curNode.style ?? {};
+              globalThis.curNode.style.background = `#fe00d5`;
+              globalThis.curNode.style.color = `#e6e6e6`;
               globalThis.curNode.type = globalThis.PE_EXPRESSION;
               this.ME.newTopicName = before;
+              this.ME.updateNodeStyle(globalThis.curNode);
               return true;
             }
           },

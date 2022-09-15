@@ -79,16 +79,7 @@ const EditMenuComponent = ({setData}) => {
                   : (
                     nv.parent.dataRoot === true ?
                     <>
-                      <h3 style={{ marginBottom: 0,}}>Edit { (nv?.type == 1) ? "condition" : 
-                        (nv?.type == 11) ? "if" :
-                        (nv?.type == 12) ? "else if" :
-                        (nv?.type == 13) ? "else" :
-                        (nv?.type == 2) ? "loop" : 
-                        (nv?.type == 3) ? "event" :
-                        (nv?.type == 31) ? "event emitter" :
-                        (nv?.type == 32) ? "event receiver" :
-                        (nv?.type == 4) ? "expression" :
-                         "Process"} <small style={{"color":"#FFFFFF7A",}}> <img title="scroll down" className="can-show-tooltip down-arrow animated bounce" src="down-arrow.svg" /> </small></h3>
+                      <h3 style={{ marginBottom: 0,}}>Edit { activeType.name } <small style={{"color":"#FFFFFF7A",}}> <img title="scroll down" className="can-show-tooltip down-arrow animated bounce" src="down-arrow.svg" /> </small></h3>
                         {activeType?.description ?
                             <details style={{fontSize: "60%", padding: "5px", }}>
                               <summary> Help
