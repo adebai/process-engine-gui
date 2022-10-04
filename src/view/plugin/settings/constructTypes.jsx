@@ -1,5 +1,5 @@
 import { handleKeyboardEvent } from "./handleKeyboardEvent";
-
+import MindElixir, { E } from "mind-elixir";
 globalThis.handler = new handleKeyboardEvent();
 globalThis.handler.register('keypress', 'C+O+D', createCondition);
 
