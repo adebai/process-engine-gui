@@ -23,10 +23,10 @@ globalThis.handler.register('keypress', 'C+O+D', createCondition);
   let nodeId2 = ('b' + (Math.random() * 9999999999)).replace('.', '');
   let nodeId3 = ('b' + (Math.random() * 9999999999)).replace('.', '');
   // console.log(E(nodeId)); return;
-  globalglobalThis.ME.selectNode(node);
+  globalThis.ME.selectNode(node);
   globalThis.ME.newTopicName = "Condition";
   globalThis.ME.addChild(E(nodeId));
-  globalglobalThis.ME.selectNode(E(nodeId));
+  globalThis.ME.selectNode(E(nodeId));
   globalThis.curNode.dataRoot = true;
   globalThis.curNode.data = globalThis.curNode.data ?? {};
   globalThis.curNode.data.nodeType = "process";
@@ -73,10 +73,10 @@ const createLoop = () => {
     let nodeId = ('b' + (Math.random() * 9999999999)).replace('.', '');
     let nodeId2 = ('b' + (Math.random() * 9999999999)).replace('.', '');
     let nodeId3 = ('b' + (Math.random() * 9999999999)).replace('.', '');
-    globalglobalThis.ME.selectNode(node);
+    globalThis.ME.selectNode(node);
     globalThis.ME.newTopicName = "Loop";
     globalThis.ME.addChild(E(nodeId));
-    globalglobalThis.ME.selectNode(E(nodeId));
+    globalThis.ME.selectNode(E(nodeId));
     globalThis.curNode.dataRoot = true;
     globalThis.curNode.data = globalThis.curNode.data ?? {};
     globalThis.curNode.data.nodeType = "process";
@@ -101,10 +101,10 @@ const createLoop = () => {
     }
     document.getElementsByTagName("cmenu").item(0).click();
     let nodeId = ('b' + (Math.random() * 9999999999)).replace('.', '');
-    globalglobalThis.ME.selectNode(node);
+    globalThis.ME.selectNode(node);
     globalThis.ME.newTopicName = "Event Emitter";
     globalThis.ME.addChild(E(nodeId));
-    globalglobalThis.ME.selectNode(E(nodeId));
+    globalThis.ME.selectNode(E(nodeId));
     globalThis.curNode.dataRoot = true;
     globalThis.curNode.data = globalThis.curNode.data ?? {};
     globalThis.curNode.data.nodeType = "process";
@@ -130,10 +130,10 @@ const createLoop = () => {
     }
     document.getElementsByTagName("cmenu").item(0).click();
     let nodeId = ('b' + (Math.random() * 9999999999)).replace('.', '');
-    globalglobalThis.ME.selectNode(node);
+    globalThis.ME.selectNode(node);
     globalThis.ME.newTopicName = "Event Receiver";
     globalThis.ME.addChild(E(nodeId));
-    globalglobalThis.ME.selectNode(E(nodeId));
+    globalThis.ME.selectNode(E(nodeId));
     globalThis.curNode.dataRoot = true;
     globalThis.curNode.data = globalThis.curNode.data ?? {};
     globalThis.curNode.data.nodeType = "process";
@@ -156,10 +156,10 @@ const createProcessBlock = () => {
     let before = globalThis.ME.newTopicName;
     document.getElementsByTagName("cmenu").item(0).click();
     let nodeId = ('b' + (Math.random() * 9999999999)).replace('.', '');
-    globalglobalThis.ME.selectNode(node);
+    globalThis.ME.selectNode(node);
     globalThis.ME.newTopicName = "Process Block";
     globalThis.ME.addChild(E(nodeId));
-    globalglobalThis.ME.selectNode(E(nodeId));
+    globalThis.ME.selectNode(E(nodeId));
     globalThis.curNode.dataRoot = true;
     globalThis.curNode.data = globalThis.curNode.data ?? {};
     globalThis.curNode.data.nodeType = "process";
