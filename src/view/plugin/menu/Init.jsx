@@ -1,9 +1,21 @@
 import React from "react";
-import { ReactDOM } from "react-dom";
 import { EditMenu } from './EditMenu';
 import { E } from 'mind-elixir';
 
 
+globalThis.reposition = (id) => {
+    if(id == 'me'+globalThis.ME.root.getAttribute('data-nodeid')){
+        console.log("skipping reposition call");
+        return true;
+    }
+    globalThis.repositioning = true;
+    globalThis.ME.selectNode(globalThis.ME.nodeData.id);
+    setTimeout(()=>{
+        globalThis.ME.selectNode(id);
+        globalThis.repositioning = false;
+    });
+    console.log("repositioned.");
+}
 
 export function Menu  (mind) {
     globalThis.PE_CONDITION = 1;
@@ -117,6 +129,7 @@ document.head.insertAdjacentHTML('beforeEnd', css);
         let canShowTooltip = document.querySelectorAll('.can-show-tooltip');
         canShowTooltip.forEach(globalThis.showTooltip)
     }, 1000)
+
 globalThis.showTooltip = (e, {notConditioned, tooltipText = "", time = 5000}) => {
     if(undefined == notConditioned) notConditioned = false;
     let tooltip = document.querySelector('.tooltiptext').style;
@@ -167,17 +180,19 @@ globalThis.showTooltip = (e, {notConditioned, tooltipText = "", time = 5000}) =>
         window.curNode = null;
     })
     mind.bus.addListener('selectNode', function(nodeObj, clickEvent) {
+        if(nodeObj.type == undefined) nodeObj.type=-1;
+        if(nodeObj.parent == undefined) nodeObj.parent={};
         if(!mind.currentNode)mind.selectNode(E(nodeObj.id));
         nodeObj.data = nodeObj.data || {
             "name" : "new",
             "nodeType" : (nodeObj.hasOwnProperty('dataRoot') ? "intent" : (nodeObj.parent.hasOwnProperty('dataRoot') ? "process" : "action")) ?? "action",
         }
         let me = nodeObj;
-        if(me.hasOwnProperty('parent') && me?.parent?.hasOwnProperty('dataRoot')){
+        if(me.hasOwnProperty('parent') && me?.parent?.hasOwnProperty('dataRoot') || (me.hasOwnProperty('dataRoot') && !me.hasOwnProperty('root'))){
             console.log("process clicked")
             mind.newTopicName = "New Action";
         }
-        else if(me.hasOwnProperty('dataRoot')){
+        else if(me.hasOwnProperty('root')){
               console.log("intent clicked")
             mind.newTopicName = "New Process";
           }

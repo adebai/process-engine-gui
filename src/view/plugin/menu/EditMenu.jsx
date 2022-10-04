@@ -1,39 +1,47 @@
 import React, { useState } from "react";
-import { render, ReactDom } from "react-dom";
 import SelectAction from "./SelectAction";
 import Input from "./Input";
 import * as types from "./../settings/types";
-import { watch } from "less";
-let formerData = {};
 const EditMenuComponent = ({setData}) => {
   const [nv, setNv] = useState({
     "id": "317f6c2b2ac27140",
     "topic": "Default Intent",
     "root": true,
+    "type": 0,
     "children": [],
     "data": {
       "name": "new",
       "nodeType": "new",
     }
   });
+  globalThis.lastId = globalThis.lastId == undefined ? nv.id : globalThis.lastId;
+  globalThis.lastType = globalThis.lastType == undefined ? nv.type : globalThis.lastType;
   setData(nv, setNv);
-  const [command, setCommand] = useState();
-  console.log("Changing...");
-
-  let activeType = (nv?.type == 1) ? types.tCondition : 
-    (nv?.type == 11) ? types.tIf :
-    (nv?.type == 12) ? types.tElseIf :
-    (nv?.type == 13) ? types.tElse :
-    (nv?.type == 2) ? types.tLoop : 
-    (nv?.type == 3) ? types.tEvent :
-    (nv?.type == 31) ? types.tEventEmitter :
-    (nv?.type == 32) ? types.tEventReceiver :
-    (nv?.type == 4) ? types.tExpression :
+  console.log("Rendering Menu...");
+  const setLastType = () => {
+    if(globalThis.lastId === nv.id || globalThis.repositioning == true) {
+      console.log("last type silent", globalThis.lastId, nv.id, globalThis.lastType, nv.type);
+      return true;
+    }
+    else globalThis.lastId = nv.id;
+    globalThis.reposition(nv.id);
+  };
+  setLastType();
+  globalThis.lastType = nv.type;
+  let activeType = (nv?.type == globalThis.PE_CONDITION) ? types.tCondition : 
+    (nv?.type == globalThis.PE_CONDITIONCHILDIF) ? types.tIf :
+    (nv?.type == globalThis.PE_CONDITIONCHILDELSEIF) ? types.tElseIf :
+    (nv?.type == globalThis.PE_CONDITIONCHILDELSE) ? types.tElse :
+    (nv?.type == globalThis.PE_LOOP) ? types.tLoop : 
+    (nv?.type == globalThis.PE_EVENT) ? types.tEvent :
+    (nv?.type == globalThis.PE_EVENTCHILDEMITTER) ? types.tEventEmitter :
+    (nv?.type == globalThis.PE_EVENTCHILDRECEIVER) ? types.tEventReceiver :
+    (nv?.type == globalThis.PE_EXPRESSIONCHILD) ? types.tExpression :
     types.type2;
   let onchanged = function(e){
     console.log(e);
     globalThis.curNode.data.value = e.target.value;
-    return setCommand(e.target.value);
+    return true;
   };
     return (
         <>
@@ -77,9 +85,10 @@ const EditMenuComponent = ({setData}) => {
                   
                 </>
                   : (
-                    nv.parent.dataRoot === true ?
-                    <>
-                      <h3 style={{ marginBottom: 0,}}>Edit { activeType.name } <small style={{"color":"#FFFFFF7A",}}> <img title="scroll down" className="can-show-tooltip down-arrow animated bounce" src="down-arrow.svg" /> </small></h3>
+                    (nv.parent.dataRoot === true || nv.dataRoot === true) ?
+
+<>
+                    <h3 style={{ marginBottom: 0,}}>Edit { activeType.name } <small style={{"color":"#FFFFFF7A",}}> <img title="scroll down" className="can-show-tooltip down-arrow animated bounce" src="down-arrow.svg" /> </small></h3>
                         {activeType?.description ?
                             <details style={{fontSize: "60%", padding: "5px", }}>
                               <summary> Help
